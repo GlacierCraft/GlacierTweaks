@@ -4,3 +4,8 @@ main: com.github.maheevil.glacier.GlacierTweaksPlugin
 api-version: 1.19
 authors: [ Maheesha ]
 description: misc
+commands:
+  unvanish:
+    description: Unvanish
+  setCrypt:
+    description: Sets the location for a crypt

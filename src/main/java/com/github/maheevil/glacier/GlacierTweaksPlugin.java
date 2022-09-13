@@ -16,12 +16,16 @@ public class GlacierTweaksPlugin extends JavaPlugin {
         this.getServer().getPluginManager().registerEvents(new EventListener(),this);
         this.getCommand("setCrypt").setExecutor(
                 (sender, command, label, args) -> {
+                    if(!sender.isOp()){
+                        return false;
+                    }
                     try{
                         Configuration config = GlacierTweaksPlugin.config;
                         config.set("cryptx",Integer.parseInt(args[0]));
                         config.set("crypty",Integer.parseInt(args[1]));
                         config.set("cryptz",Integer.parseInt(args[2]));
                         glacierTweaksPlugin.saveConfig();
+                        sender.sendMessage("Crypt setup successful");
                         return true;
                     }catch(NumberFormatException e){
                         e.printStackTrace();
